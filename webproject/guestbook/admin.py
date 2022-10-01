@@ -14,7 +14,8 @@ class GuestAdmin(admin.ModelAdmin):
     list_filter = (
         'id',
         'author_name', 
-        'author_email', 
+        'author_email',
+        'textrec', 
         'created_at',
         'changed_at',
         'status'
@@ -22,6 +23,7 @@ class GuestAdmin(admin.ModelAdmin):
     search_fields = (
         'author_name', 
         'author_email', 
+        'textrec',
         'created_at',
         'changed_at',
         'status'
@@ -29,8 +31,7 @@ class GuestAdmin(admin.ModelAdmin):
     fields = (
         'author_name', 
         'author_email', 
-        'created_at',
-        'changed_at',
+        'textrec',
         'status'
     )
 
