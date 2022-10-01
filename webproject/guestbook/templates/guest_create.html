@@ -1,0 +1,19 @@
+﻿{% extends 'base.html' %}
+
+{% block title %}
+    Создать запись
+{% endblock %}
+
+{% block menu %}
+<li class="nav-item">
+  <a class="nav-link active text-light" disabled aria-current="page">добавить запись</a>
+</li>
+{% endblock %}
+
+{% block content %}
+<h1 class="m-3">Создание новой записи: </h1>
+<form class="m-3" action="{% url 'guest_add' %}" method="POST">
+    {% include 'partial/form_guest.html' with button_text='Создать' %}
+</form>
+<p class="mt-4 ms-2"><a href="{% url 'index' %}">вернуться на главную</a></p>
+{% endblock %}

@@ -1,0 +1,27 @@
+﻿{% csrf_token %}
+
+<div class="input-group mt-4 mb-4">
+    <span class="input-group-text" id="inputGroup-sizing-default">{{ form.author_name.label }}: </span>
+    {{ form.author_name }}
+</div>
+{% for error in form.author_name.errors %}
+<div><p class="text-danger">{{ error }}</p></div>
+{% endfor %}
+
+<div class="input-group mt-4 mb-4">
+    <span class="input-group-text" id="inputGroup-sizing-default">{{ form.author_email.label }}: </span>
+    {{ form.author_email }}
+</div>
+{% for error in form.author_email.errors %}
+<div><p class="text-danger">{{ error }}</p></div>
+{% endfor %}
+
+<div class="form-floating mb-4">
+    {{form.textrec}}
+    <label for="floatingTextarea">{{ form.textrec.label }}:</label>
+</div>
+{% for error in form.textrec.errors %}
+<div><p class="text-danger">{{ error }}</p></div>
+{% endfor %}
+
+<button type="submit" class="btn btn-primary ms-2 ps-3 pe-3 mt-4">{{ button_text }}</button>
