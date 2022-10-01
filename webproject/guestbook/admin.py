@@ -4,8 +4,8 @@ from guestbook.models import Guest
 
 class GuestAdmin(admin.ModelAdmin):
     list_display = (
-        'id',
         'author_name', 
+        'id',
         'author_email', 
         'created_at',
         'changed_at',
