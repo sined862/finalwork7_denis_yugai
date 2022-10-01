@@ -21,3 +21,10 @@ class GuestForm(forms.Form):
         label = 'Текст записи',
         widget = widgets.Textarea(attrs={'class': 'form-control', 'style': 'height:150px'})
     )
+
+class SearchForm(forms.Form):
+    author = forms.CharField(
+        max_length=25,
+        required = True,
+        widget=widgets.TextInput(attrs={'class': 'form-control', 'type': 'search', 'placeholder': 'поиск'})
+    )

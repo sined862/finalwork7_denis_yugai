@@ -35,4 +35,15 @@ def update_view(request, pk):
             return redirect('index')
         else:
             return render(request, 'guest_update.html', context={'form': form, 'guest': guest})
+
+
+def del_view(request, pk):
+    guest = get_object_or_404(Guest, pk=pk)
+    context = {'guest': guest}
+    return render(request, 'confirm_delete.html', context)
+
+def del_confirm_view(request, pk):
+    guest = get_object_or_404(Guest, pk=pk)
+    guest.delete()
+    return redirect('index')
             
