@@ -5,9 +5,9 @@ from guestbook.forms import GuestForm
 
 def index_view(request):
     form_finder = SearchForm()
+    form = GuestForm()
     if request.method == 'GET':
         if not request.GET.get('author'):
-            form = GuestForm()
             guests = Guest.objects.filter(status='active').order_by('created_at').reverse
             context = {
                 'guests': guests,
@@ -21,6 +21,7 @@ def index_view(request):
             context = {
                 'guests': guests,
                 'error': error,
+                'form_finder': form_finder,
                 'form': form
             }
             return render(request, 'index.html', context)

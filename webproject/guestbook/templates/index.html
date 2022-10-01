@@ -8,19 +8,15 @@
 {% endblock %}
 
 {% block content %}
-<div style="text-align: center;" class="title mt-3 mb-3">
-    <h3>Гостевая книга</h3>
+<div style="text-align: center;" class="title mt-4 mb-4">
+    <h3>Гостевая книга <a class="btn btn-secondary ms-3" data-bs-toggle="modal" href="#exampleModalToggle" role="button">Добавить новую запись</a></h3>
 </div>
-<form class="m-3" action="{% url 'guest_add' %}" method="POST">
-    {% include 'partial/form_guest.html' with button_text='Создать' %}
-</form>
 
 <div class="row">
 {% if guests %}
 {% for guest in guests %}
-<div class="col-md-12 col-xl-12 mb-4">
+<div class="col-md-12 col-xl-4 mb-4">
     <div class="card p-3 m-2">
-
       <div class="card-header p-0 bg-white">
         <div class="row">
             <div class="col-sm-8"><h5>{{ guest.author_name }} ({{ guest.author_email }})</h5></div>
@@ -30,7 +26,7 @@
             </div>
         </div>
       </div> 
-      <p class="card-text text-secondary">{{ guest.textrec }}</p>
+      <p class="card-text text-secondary pt-2">{{ guest.textrec }}</p>
     </div>
 </div>
 {% endfor %}
@@ -43,4 +39,24 @@
 {% endif %}
 {% endif %}
 </div>
+
+
+<div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalToggleLabel">Создание новой записи</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form class="m-3" action="{% url 'guest_add' %}" method="POST">
+                {% include 'partial/form_guest.html' with button_text='Создать' %}
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+
 {% endblock %}

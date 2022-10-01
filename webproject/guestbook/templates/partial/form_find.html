@@ -2,7 +2,6 @@
 
 <form class="d-flex ms-5" role="search" action="{% url 'search' %}" method="get">
     {{ form_finder.author }}
-    <!-- <input name="author" class="form-control me-2" type="search" placeholder="Search" aria-label="Search"> -->
     <button class="btn btn-secondary ms-2" type="submit">{{ button_text }}</button>
 </form>
 {% for error in form.author.errors %}
